@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TEK Chansetha | Developer & Cybersecurity Engineer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#0b1020;--bg2:#111833;--card:#141c38;--line:#232d52;--tx:#eef1fb;--mu:#98a2c3;--blue:#6d8bff;--cy:#38d9e8;--ok:#4ade80;--warn:#fbbf24;--bad:#f87171;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#f6f7fc;--bg2:#eceffa;--card:#fff;--line:#d9def0;--tx:#12172b;--mu:#586084;--blue:#3b5bdb;--cy:#0891a8;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1100px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-weight:800;padding:2px 9px;border:1px solid var(--blue);border-radius:8px;color:var(--blue)}
+.links{display:flex;gap:16px;overflow-x:auto;flex:1;scrollbar-width:none;font-size:14px;color:var(--mu)}
+.links a{white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.links a:hover,.links a.on{color:var(--tx);border-color:var(--cy)}
+.right{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--mu)}
+.right a:hover{color:var(--tx)}
+.ibtn{background:none;border:1px solid var(--line);color:var(--tx);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px}
+section{max-width:1100px;margin:auto;padding:84px 20px 20px}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 8px;letter-spacing:-.02em}
+.eyebrow{font-size:13px;color:var(--cy);margin-bottom:6px}
+.sub{color:var(--mu);max-width:680px;margin:0 0 28px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:64px;min-height:80vh;position:relative}
+.hero::before{content:"";position:absolute;inset:-40px -20px auto;height:520px;background:radial-gradient(500px 280px at 80% 30%,color-mix(in srgb,var(--blue) 22%,transparent),transparent),radial-gradient(400px 240px at 10% 10%,color-mix(in srgb,var(--cy) 14%,transparent),transparent);z-index:-1;pointer-events:none}
+h1{font-size:clamp(40px,7vw,68px);line-height:1.05;margin:10px 0 6px;letter-spacing:-.03em}
+.role{font-size:clamp(18px,2.6vw,24px);background:linear-gradient(90deg,var(--blue),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tag{font-family:"JetBrains Mono",monospace;font-size:12px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--mu);background:var(--card)}
+.tag.c{border-color:color-mix(in srgb,var(--cy) 50%,var(--line));color:var(--cy)}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:600;border:1px solid var(--line);cursor:pointer;background:var(--card);color:var(--tx);font-size:15px;transition:.2s}
+.btn.p{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.sec{margin-top:18px;font-size:14px;color:var(--mu);display:flex;gap:16px;flex-wrap:wrap}
+.sec a:hover{color:var(--cy)}
+.cur::after{content:"▌";animation:bl 1s steps(2) infinite;color:var(--cy)}
+@keyframes bl{50%{opacity:0}}
+.stack{display:flex;flex-direction:column;align-items:stretch}
+.layer{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-align:left;color:var(--tx);cursor:pointer;font:inherit;transition:.25s;display:flex;justify-content:space-between;align-items:center}
+.layer b{font-size:15px}.layer span{font-size:12px;color:var(--mu)}
+.layer.on{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),0 10px 30px -10px var(--blue)}
+.layer[data-k="s"].on{border-color:var(--cy);box-shadow:0 0 0 1px var(--cy),0 10px 30px -10px var(--cy)}
+.flow{height:24px;width:2px;margin:0 auto;background:linear-gradient(var(--blue),var(--cy),var(--blue));background-size:100% 200%;animation:fl 2s linear infinite}
+@keyframes fl{to{background-position:0 200%}}
+.nodes{margin-top:14px;min-height:44px;display:flex;flex-wrap:wrap;gap:8px}
+.nodes .tag{animation:pop .35s both}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--mu);cursor:pointer;font:inherit;font-size:14px;transition:.2s}
+.tab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.tab.cy.on{background:var(--cy);border-color:var(--cy);color:#06222a}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;min-height:120px}
+.panel .tag{margin:4px 6px 4px 0;font-size:13px;transition:.2s}
+.panel .tag:hover{color:var(--tx);border-color:var(--cy);transform:translateY(-2px)}
+.panel h4{margin:14px 0 6px;font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em}
+.panel h4:first-child{margin-top:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--blue)}
+.exp ul{margin:12px 0 0;padding-left:20px;color:var(--mu)}
+.exp li{margin:5px 0}.exp li.h{display:none}.exp.open li.h{display:list-item}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.proj{cursor:pointer}
+.proj .cat{font-size:12px;color:var(--cy)}
+.proj h3{margin:6px 0}.proj p{color:var(--mu);margin:6px 0;font-size:15px}
+.proj .more{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;color:var(--mu)}
+.proj.open .more{display:block}.proj.hide{display:none}
+.hint{font-size:12px;color:var(--blue);margin-top:8px}
+.mode{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;background:var(--card);margin:6px 0 24px}
+.mode button{border:0;background:none;color:var(--mu);padding:8px 24px;border-radius:999px;cursor:pointer;font:inherit;font-weight:600;transition:.25s}
+.mode button.on{background:var(--blue);color:#fff}.mode button.on.s{background:var(--cy);color:#06222a}
+.pipe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.step{padding:12px 18px;border-radius:12px;border:1px solid var(--blue);background:var(--card);font-family:"JetBrains Mono",monospace;font-size:14px;animation:pop .45s both}
+.pipe.s .step{border-color:var(--cy)}
+.arr{color:var(--mu)}
+.msg{margin-top:20px;font-weight:700;font-size:18px}
+.sim{display:grid;grid-template-columns:260px 1fr;gap:16px}
+.sim .ctl{display:flex;flex-direction:column;gap:8px}
+.sim .btn{text-align:left;font-size:14px;padding:9px 14px}
+.chk{font-size:14px;color:var(--mu);display:flex;gap:8px;align-items:center;margin-top:6px}
+.log{background:#070b17;color:#cfd6f2;border:1px solid var(--line);border-radius:14px;padding:14px;height:250px;overflow:auto;font-size:12.5px;line-height:1.7}
+:root[data-theme="light"] .log{background:#0e1428}
+.log div{animation:pop .3s both}.log .ok{color:#4ade80}.log .warn{color:#fbbf24}.log .alert{color:#f87171}.log .block{color:#38d9e8}.log .info{color:#98a2c3}
+.stats{display:flex;gap:18px;font-size:13px;color:var(--mu);margin-bottom:10px}.stats b{color:var(--tx)}
+.labs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.labs .card{padding:16px}.labs h4{margin:0 0 8px;font-size:14px;color:var(--cy)}.labs span{display:block;font-size:14px;color:var(--mu)}
+.contact{text-align:center}.contact .sec{justify-content:center;margin:20px 0}
+footer{max-width:1100px;margin:60px auto 0;padding:26px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--mu);font-size:14px}
+.rv{opacity:0;transform:translateY(16px);transition:.7s}.rv.in{opacity:1;transform:none}
+@media(max-width:820px){.hero{grid-template-columns:1fr;min-height:0}.sim{grid-template-columns:1fr}.right .t{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+#net{position:absolute;left:-20px;top:-40px;width:calc(100% + 40px);height:calc(100% + 40px);z-index:-1;pointer-events:none}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--cy));z-index:40}
+.card{position:relative;overflow:hidden}.card>*{position:relative}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--cy) 16%,transparent),transparent 60%);opacity:0;transition:opacity .25s;pointer-events:none}
+.card:hover::before{opacity:1}
+.path{display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11.5px}
+.path span{padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:.3s;white-space:nowrap}
+.path i{flex:1;height:2px;background:var(--line);min-width:8px}
+.path span.ok{border-color:var(--ok);color:var(--ok)}.path span.hot{border-color:var(--warn);color:var(--warn)}.path span.bad{border-color:var(--bad);color:var(--bad)}.path span.blk{border-color:var(--cy);color:var(--cy)}
+#pal{position:fixed;inset:0;background:rgba(5,8,18,.6);z-index:50;display:none;align-items:flex-start;justify-content:center;padding-top:18vh}
+#pal.on{display:flex}
+#pal>div{width:min(520px,92vw);background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#pal input{width:100%;padding:16px 18px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--tx);font:inherit;outline:none}
+#pal a{display:block;padding:10px 18px;color:var(--mu)}
+#pal a.on{background:color-mix(in srgb,var(--blue) 20%,transparent);color:var(--tx)}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header><div class="nav">
+<a class="logo mono" href="#top">TC</a>
+<nav class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#lab">Labs</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a></nav>
+<div class="right"><a class="t" href="#">GitHub</a><a class="t" href="#">LinkedIn</a><button class="ibtn" id="kbtn" aria-label="Open command menu">⌘</button><button class="ibtn" id="theme" aria-label="Toggle theme">☾</button></div>
+</div></header>
+
+<section class="hero" id="top">
+<div>
+<div class="mono eyebrow"><span id="who"></span><span class="cur"></span></div>
+<h1>TEK Chansetha</h1>
+<div class="role">Developer &amp; Cybersecurity Engineer</div>
+<p class="sub" style="margin-top:14px">Building secure, reliable systems from application development to network infrastructure — with a focus on offensive security and penetration testing.</p>
+<div class="tags"><span class="tag">Development</span><span class="tag c">Penetration Testing</span><span class="tag">Networking</span><span class="tag">Cloud</span></div>
+<a class="btn p" href="#projects">View Projects</a> <a class="btn" href="#about">About Me</a>
+<div class="sec"><a href="https://github.com/ShiroYaksha01">GitHub</a><a href="#">LinkedIn</a><a href="#">Resume</a></div>
+<div class="mono" style="font-size:12px;color:var(--mu);margin-top:16px">press Ctrl K for the command menu</div>
+</div>
+<div>
+<div class="mono" style="font-size:12px;color:var(--mu);margin-bottom:8px">// click a layer</div>
+<div class="stack">
+<button class="layer on" data-k="d"><b>Developer</b><span>build</span></button><div class="flow"></div>
+<button class="layer" data-k="i"><b>Infrastructure</b><span>run</span></button><div class="flow"></div>
+<button class="layer" data-k="s"><b>Security</b><span>protect</span></button>
+</div>
+<div class="nodes" id="nodes"></div>
+</div>
+</section>
+
+<section id="about" class="rv">
+<div class="mono eyebrow">01 / about</div><h2>About Me</h2>
+<p class="sub">I am an Information and Communication Engineering student at the Institute of Technology of Cambodia with a primary focus on cybersecurity, especially penetration testing, alongside interests in software development, networking, and cloud infrastructure. My projects cover both sides of modern computing: building applications and finding the weaknesses in the systems that support and protect them.</p>
+<p class="sub">I am particularly interested in roles centered on penetration testing and offensive security, including web application security, API security testing, and vulnerability assessment.</p>
+</section>
+
+<section id="skills" class="rv">
+<div class="mono eyebrow">02 / skills</div><h2>Technical Skills</h2><p class="sub">Grouped by domain rather than one long list.</p>
+<div class="tabs" id="stabs"></div><div class="panel" id="spanel"></div>
+</section>
+
+<section id="experience" class="rv">
+<div class="mono eyebrow">03 / experience</div><h2>Network Security Internship</h2>
+<div class="card exp" id="exp">
+<b>Network Security Monitoring &amp; IDS/IPS Environment</b>
+<p style="color:var(--mu);margin:6px 0 0">Designed and implemented a simulated SME network security environment for evaluating network monitoring and intrusion detection technologies.</p>
+<ul>
+<li>Designed a segmented multi-VLAN network</li><li>Configured Cisco switching with LACP uplinks</li><li>Configured pfSense firewall and inter-VLAN routing</li><li>Deployed standalone Suricata IDS on mirrored traffic</li>
+<li class="h">Deployed PRTG, Zabbix, and LibreNMS</li><li class="h">Compared monitoring platforms under normal and malicious traffic</li><li class="h">Integrated Suricata IPS with pfSense</li><li class="h">Configured Telegram security alerts</li><li class="h">Used Kali Linux for controlled security testing</li><li class="h">Deployed vulnerable apps: DVWA and OWASP Juice Shop</li><li class="h">Used Ansible for security automation</li>
+</ul>
+<button class="btn" id="expbtn" style="margin-top:16px">Show all work</button>
+</div>
+</section>
+
+<section id="projects" class="rv">
+<div class="mono eyebrow">04 / projects</div><h2>Featured Projects</h2><p class="sub">Click a card to expand it.</p>
+<div class="tabs" id="ptabs"></div>
+<div class="grid" id="pgrid"></div>
+</section>
+
+<section class="rv">
+<div class="mono eyebrow">05 / mindset</div><h2>I Build Systems, and I Think About How They Break</h2>
+<div class="mode" id="mode"><button class="on" data-m="b">Build</button><button data-m="s" class="">Break &amp; Protect</button></div>
+<div class="pipe" id="pipe"></div>
+<div class="msg">Secure engineering requires understanding both sides.</div>
+</section>
+
+<section id="lab" class="rv">
+<div class="mono eyebrow">06 / lab</div><h2>Traffic Simulator</h2>
+<p class="sub">An illustrative demo of what the monitoring lab looks like in practice. These are simulated events, not real logs.</p>
+<div class="sim">
+<div class="ctl">
+<button class="btn" data-s="normal">▶ Normal traffic</button><button class="btn" data-s="scan">▶ Port scan</button><button class="btn" data-s="sqli">▶ SQL injection attempt</button><button class="btn" data-s="brute">▶ Login brute force</button>
+<label class="chk"><input type="checkbox" id="ips" checked> IPS mode (block at firewall)</label>
+<button class="btn" id="clr" style="font-size:13px">Clear log</button>
+</div>
+<div><div class="path mono" id="path"><span data-n="atk">Attacker</span><i></i><span data-n="fw">pfSense</span><i></i><span data-n="ids">Suricata</span><i></i><span data-n="web">Web server</span></div>
+<div class="stats mono"><span>events <b id="n1">0</b></span><span>alerts <b id="n2">0</b></span><span>blocked <b id="n3">0</b></span></div>
+<div class="log mono" id="log"><div class="info">$ suricata -c suricata.yaml -i span0  (waiting for traffic)</div></div></div>
+</div>
+</section>
+
+<section class="rv">
+<div class="mono eyebrow">07 / more labs</div><h2>Technical Work</h2><p class="sub">Smaller exercises that show breadth.</p>
+<div class="labs">
+<div class="card"><h4>Cybersecurity</h4><span>Caesar, Monoalphabetic, Playfair, Hill ciphers</span><span>SQL injection exercises</span><span>Network attack detection</span></div>
+<div class="card"><h4>Networking</h4><span>VLAN, LACP, routing, NAT</span><span>DNS, NTP, SSH</span></div>
+<div class="card"><h4>Image Processing</h4><span>Image arithmetic, channel manipulation</span><span>Noise reduction, ROI masking</span><span>Moving-object detection</span></div>
+<div class="card"><h4>Cloud</h4><span>AWS Academy laboratories</span></div>
+</div>
+</section>
+
+<section id="education" class="rv">
+<div class="mono eyebrow">08 / education</div><h2>Education</h2>
+<div class="card"><b>Institute of Technology of Cambodia</b><div style="color:var(--mu)">Department of Information and Communication Engineering</div>
+<div class="tags"><span class="tag">Software Engineering</span><span class="tag">Computer Networks</span><span class="tag c">Cybersecurity</span><span class="tag">Database Systems</span><span class="tag">Cloud Computing</span><span class="tag">Operating Systems</span></div></div>
+</section>
+
+<section id="certifications" class="rv">
+<div class="mono eyebrow">09 / certifications</div><h2>Internship Credentials</h2><p class="sub">Completion certificates from internship host companies.</p>
+<div class="grid">
+<div class="card"><div class="cat mono" style="color:var(--cy)">Penetration Testing Internship</div><h3 style="margin:6px 0">Solo Landscapes</h3><p style="color:var(--mu);margin:6px 0;font-size:15px">Certificate of Completion — Penetration Testing internship, 08 Jul 2026 to 08 Oct 2026. Signed by Horn Sokchanlida, Co-Founder.</p></div>
+<div class="card"><div class="cat mono">Cybersecurity &amp; Network Technology Internship</div><h3 style="margin:6px 0">Proxy Solutions</h3><p style="color:var(--mu);margin:6px 0;font-size:15px">Certificate of Completion — Cybersecurity &amp; Network Technology internship program, 08 Jul 2026 to 30 Sep 2026. Signed by Heang Sothavan, Supervisor.</p></div>
+</div>
+</section>
+
+<section id="contact" class="contact rv">
+<div class="mono eyebrow">10 / contact</div><h2>Let’s Connect</h2>
+<p class="sub" style="margin:auto">Interested in penetration testing, software development, cybersecurity, networking, cloud infrastructure, or collaborative technical projects? Feel free to contact me.</p>
+<div class="sec"><a class="btn p" href="mailto:chansethatek@gmail.com">Email</a><a class="btn" href="https://github.com/ShiroYaksha01">GitHub</a><a class="btn" href="https://www.linkedin.com/in/chansetha-tek-a9225a30a/">LinkedIn</a></div>
+</section>
+
+<footer><div><b>TEK Chansetha</b><br>Developer &amp; Cybersecurity Engineer<br><span class="mono">Build. Secure. Deploy.</span></div><div>© 2026 TEK Chansetha</div></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// theme
+const root=document.documentElement,tb=$('#theme');
+function setTheme(t){root.dataset.theme=t;tb.textContent=t==='dark'?'☾':'☀';try{localStorage.setItem('theme',t)}catch(e){}}
+let t0='dark';try{t0=localStorage.getItem('theme')||'dark'}catch(e){}
+setTheme(t0);tb.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+// typed whoami
+const wt='$ whoami → developer + penetration tester',wi=$('#who');
+if(reduce)wi.textContent=wt;else{let i=0;(function k(){wi.textContent=wt.slice(0,i++);if(i<=wt.length)setTimeout(k,45)})()}
+// hero layers
+const L={d:['Applications','APIs','Databases'],i:['Networks','Cloud','Servers'],s:['Penetration Testing','Vulnerability Assessment','IDS / IPS']};
+function showLayer(k){$$('.layer').forEach(b=>b.classList.toggle('on',b.dataset.k===k));const n=$('#nodes');n.innerHTML='';L[k].forEach((x,i)=>{const e=document.createElement('span');e.className='tag'+(k==='s'?' c':'');e.textContent=x;e.style.animationDelay=i*90+'ms';n.append(e)})}
+$$('.layer').forEach(b=>{b.onclick=()=>showLayer(b.dataset.k);b.onmouseenter=()=>showLayer(b.dataset.k)});showLayer('d');
+// skills
+const S={Development:{Languages:['TypeScript','JavaScript','Python','SQL','HTML','CSS'],'Frameworks / Platforms':['Vue.js','NestJS','Node.js','REST APIs','GraphQL'],Databases:['PostgreSQL','MongoDB','MySQL / MariaDB']},
+Cybersecurity:{Areas:['Penetration Testing','Web Application Security','API Security Testing','Vulnerability Assessment','Network Security','Security Monitoring','IDS / IPS','Traffic Analysis','Firewall Policy Design'],
+'Offensive Tools':['Burp Suite','Nmap','Kali Linux','ffuf','SecLists'],
+'Defensive / Monitoring Tools':['Suricata','pfSense','PRTG Network Monitor','Zabbix','LibreNMS']},
+Networking:{Concepts:['TCP/IP','VLAN','Inter-VLAN Routing','LACP','SPAN / RSPAN','NAT','DNS','NTP','Routing','Firewall Configuration'],Platforms:['Cisco IOS','VyOS','pfSense','EVE-NG','Proxmox']},
+'Cloud & Infra':{Tools:['AWS','Docker','Linux','Git','GitHub','NGINX','Ansible']}};
+const st=$('#stabs'),sp=$('#spanel');
+function showSkill(k){$$('.tab',st).forEach(b=>b.classList.toggle('on',b.textContent===k));sp.innerHTML='';for(const g in S[k]){const h=document.createElement('h4');h.textContent=g;sp.append(h);S[k][g].forEach(x=>{const e=document.createElement('span');e.className='tag'+(k==='Cybersecurity'?' c':'');e.textContent=x;sp.append(e)})}}
+Object.keys(S).forEach(k=>{const b=document.createElement('button');b.className='tab'+(k==='Cybersecurity'?' cy':'');b.textContent=k;b.onclick=()=>showSkill(k);st.append(b)});showSkill('Cybersecurity');
+// experience
+$('#expbtn').onclick=e=>{const o=$('#exp').classList.toggle('open');e.target.textContent=o?'Show less':'Show all work'};
+// projects — pentest work leads, offensive tools separated from defensive
+const P=[
+{c:'Penetration Testing',f:'Cybersecurity',t:'Production Web App Pentest',d:'A 12-week black-box penetration test of a production travel-booking platform, covering auth, GraphQL API, business logic, and payment flows.',s:'Found and reported: critical client-side price tampering that bypassed server-side validation on the payment gateway; a confirmed admin-panel clickjacking vulnerability (live PoC); a race-condition exploit causing double-booking on limited-availability slots; stored XSS and JWT/OAuth CSRF weaknesses. Delivered a 24-page report with CVSS scoring, PoC evidence, and remediation guidance. Burp Suite · GraphQL · JWT analysis · nmap'},
+{c:'Penetration Testing',f:'Cybersecurity',t:'Authorized API & Web App Assessment',d:'Black-box security assessment of an HR management web application and its backing APIs, under a formal written scope.',s:'Authentication and session testing, rate-limit and brute-force checks, API endpoint enumeration. Burp Suite · Nmap · Kali Linux'},
+{c:'Cybersecurity / Networking',f:'Cybersecurity',t:'Network Security Monitoring Lab',d:'A simulated SME infrastructure used to compare monitoring platforms and evaluate Suricata IDS/IPS under normal and malicious network activity.',s:'EVE-NG · pfSense · Suricata · PRTG · Zabbix · LibreNMS · Cisco · VyOS · Ansible'},
+{c:'Full-Stack Development',f:'Development',t:'HelloKampot',d:'A Kampot-focused booking platform connecting customers with accommodation, transportation, and activity providers.',s:'Vue.js · TypeScript · NestJS · PostgreSQL · Cloudflare. Customer, Provider and Admin roles, direct booking, Bakong QR payment, provider management, Telegram notifications.'},
+{c:'Cloud / Infrastructure',f:'Cloud',t:'AWS Cloud Labs',d:'Cloud infrastructure exercises completed using AWS Academy, focused on architecture and learning outcomes.',s:'EC2 · Lambda · ECS · CodeBuild · IAM · GitHub'},
+{c:'Application Security',f:'Cybersecurity',t:'Security Fundamentals (CTF Labs)',d:'CTF-style lab environments covering classic web vulnerability classes as part of coursework.',s:'IDOR · SQLi · XXE · SSRF · SSTI/RCE · DOM & stored XSS · CORS misconfiguration · mass assignment · path traversal. Burp Suite · ffuf · SecLists'}];
+const pg=$('#pgrid'),pt=$('#ptabs');
+P.forEach(p=>{const e=document.createElement('div');e.className='card proj';e.dataset.f=p.f;
+e.innerHTML='<div class="cat mono"></div><h3></h3><p></p><div class="more"></div><div class="hint mono">+ details</div>';
+$('.cat',e).textContent=p.c;$('h3',e).textContent=p.t;$('p',e).textContent=p.d;$('.more',e).textContent=p.s;
+e.onclick=()=>{const o=e.classList.toggle('open');$('.hint',e).textContent=o?'− close':'+ details'};pg.append(e)});
+['All','Cybersecurity','Development','Cloud'].forEach((k,i)=>{const b=document.createElement('button');b.className='tab'+(k==='Cybersecurity'?' on':'');b.textContent=k;
+b.onclick=()=>{$$('.tab',pt).forEach(x=>x.classList.toggle('on',x===b));$$('.proj').forEach(c=>c.classList.toggle('hide',k!=='All'&&c.dataset.f!==k))};pt.append(b)});
+$$('.proj').forEach(c=>c.classList.toggle('hide',c.dataset.f!=='Cybersecurity'));
+// build / break
+const M={b:['Design','Build','API','Database','Deploy'],s:['Identify','Monitor','Test','Detect','Protect']};
+function setMode(m){$$('#mode button').forEach(b=>{b.classList.toggle('on',b.dataset.m===m);b.classList.toggle('s',b.dataset.m==='s')});const p=$('#pipe');p.className='pipe'+(m==='s'?' s':'');p.innerHTML='';
+M[m].forEach((x,i)=>{if(i){const a=document.createElement('span');a.className='arr';a.textContent='→';p.append(a)}const e=document.createElement('div');e.className='step';e.textContent=x;e.style.animationDelay=i*110+'ms';p.append(e)})}
+$$('#mode button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));setMode('b');
+// simulator
+const SC={normal:[['ok','HTTPS 10.0.20.15 → web-srv:443 allowed'],['ok','DNS query resolved by internal DNS'],['ok','SSH session from management VLAN']],
+scan:[['warn','Many connection attempts across 40 ports from 10.0.50.99'],['alert','ALERT  Possible port scan (reconnaissance)']],
+sqli:[['warn','Request to /login contains injected SQL syntax'],['alert','ALERT  SQL injection attempt against web app']],
+brute:[['warn','60 failed logins in 20s from 10.0.50.99'],['alert','ALERT  Possible brute force on login endpoint']]};
+let c=[0,0,0];const lg=$('#log');
+function add(cl,tx){mark(cl);const d=document.createElement('div');d.className=cl;d.textContent=new Date().toLocaleTimeString([],{hour12:false})+'  '+tx;lg.append(d);lg.scrollTop=lg.scrollHeight;c[0]++;if(cl==='alert')c[1]++;if(cl==='block')c[2]++;['n1','n2','n3'].forEach((id,i)=>$('#'+id).textContent=c[i])}
+$$('[data-s]').forEach(b=>b.onclick=()=>{const k=b.dataset.s;rst();let i=0;const q=[...SC[k]];if(k!=='normal'){if($('#ips').checked)q.push(['block','IPS rule: source 10.0.50.99 blocked at firewall']);q.push(['info','Telegram alert sent to security channel'])}
+(function n(){if(i<q.length){add(...q[i++]);setTimeout(n,reduce?0:450)}})()});
+$('#clr').onclick=()=>{lg.innerHTML='';c=[0,0,0];['n1','n2','n3'].forEach(id=>$('#'+id).textContent=0)};
+// reveal + nav highlight
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('.rv').forEach(e=>io.observe(e));
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('.links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'});$$('section[id]').forEach(s=>so.observe(s));
+
+// attack path
+const PN={};$$('#path span').forEach(s=>PN[s.dataset.n]=s);
+function rst(){for(const k in PN)PN[k].className=''}
+function mark(cl){if(cl==='ok')for(const k in PN)PN[k].className='ok';else if(cl==='warn'){PN.atk.className='hot';PN.fw.className='hot'}else if(cl==='alert')PN.ids.className='bad';else if(cl==='block'){PN.fw.className='blk';PN.web.className='ok'}else if(cl==='info'&&!$('#ips').checked)PN.web.className='bad'}
+// scroll bar + card spotlight
+const bar=$('#bar');addEventListener('scroll',()=>{bar.style.transform='scaleX('+Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))+')'},{passive:true});
+addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
+// hero network
+(function(){const h=$('.hero'),cv=document.createElement('canvas');cv.id='net';h.prepend(cv);const x=cv.getContext('2d');
+let W,H,N=[],P=[],m={x:-999,y:-999},vis=true,f=0,cb,cc;
+function cols(){const g=n=>getComputedStyle(root).getPropertyValue(n).trim();cb=g('--blue');cc=g('--cy')}
+function size(){const r=h.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width+40;H=r.height+40;cv.width=W*d;cv.height=H*d;x.setTransform(d,0,0,d,0,0);N=[];const c=Math.min(70,Math.round(W*H/15000));for(let i=0;i<c;i++)N.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,s:Math.random()<.2})}
+function draw(){if(f++%60===0)cols();x.clearRect(0,0,W,H);const L=[];
+for(const n of N){if(!reduce){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1}}
+for(let i=0;i<N.length;i++)for(let j=i+1;j<N.length;j++){const a=N[i],b=N[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){L.push([a,b]);const near=Math.hypot((a.x+b.x)/2-m.x,(a.y+b.y)/2-m.y)<150;x.strokeStyle=near?cc:cb;x.globalAlpha=(1-d/130)*(near?.7:.25);x.lineWidth=near?1.4:1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+if(!reduce){if(f%35===0&&L.length&&P.length<14)P.push({l:L[Math.floor(Math.random()*L.length)],t:0});
+P=P.filter(p=>p.t<1);for(const p of P){p.t+=.02;x.globalAlpha=.9;x.fillStyle=cc;x.beginPath();x.arc(p.l[0].x+(p.l[1].x-p.l[0].x)*p.t,p.l[0].y+(p.l[1].y-p.l[0].y)*p.t,2.5,0,7);x.fill()}}
+for(const n of N){x.globalAlpha=.8;x.fillStyle=n.s?cc:cb;x.beginPath();x.arc(n.x,n.y,n.s?3:2,0,7);x.fill()}}
+function loop(){if(vis&&!document.hidden)draw();if(!reduce)requestAnimationFrame(loop)}
+size();cols();draw();if(!reduce)loop();
+addEventListener('resize',()=>{size();if(reduce)draw()});
+addEventListener('pointermove',e=>{const r=h.getBoundingClientRect();m.x=e.clientX-r.left+20;m.y=e.clientY-r.top+40});
+new IntersectionObserver(es=>vis=es[0].isIntersecting).observe(h)})();
+// command menu
+const CM=[['About','#about'],['Skills','#skills'],['Experience','#experience'],['Projects','#projects'],['Traffic simulator','#lab'],['Education','#education'],['Certifications','#certifications'],['Contact','#contact']].map(([l,h])=>['Go to '+l,()=>{location.hash=h}]).concat([['Toggle theme',()=>tb.click()],['Run SQL injection demo',()=>{location.hash='#lab';$('[data-s=sqli]').click()}]]);
+const pal=document.createElement('div');pal.id='pal';pal.innerHTML='<div><input placeholder="Type a command" aria-label="Command menu"><nav></nav></div>';document.body.append(pal);
+const pi=$('input',pal),pn=$('nav',pal);let sel=0,cur=[];
+function render(){const q=pi.value.toLowerCase();cur=CM.filter(c=>c[0].toLowerCase().includes(q));sel=Math.max(0,Math.min(sel,cur.length-1));pn.innerHTML='';cur.forEach((c,i)=>{const a=document.createElement('a');a.href='#';a.textContent=c[0];a.className=i===sel?'on':'';a.onclick=e=>{e.preventDefault();run(i)};pn.append(a)})}
+function run(i){if(!cur[i])return;pal.classList.remove('on');cur[i][1]()}
+function openP(){pal.classList.add('on');pi.value='';sel=0;render();pi.focus()}
+pi.oninput=()=>{sel=0;render()};
+addEventListener('keydown',e=>{const on=pal.classList.contains('on');if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();on?pal.classList.remove('on'):openP()}else if(on){if(e.key==='Escape')pal.classList.remove('on');else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,cur.length-1);render()}else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);render()}else if(e.key==='Enter')run(sel)}});
+pal.onclick=e=>{if(e.target===pal)pal.classList.remove('on')};$('#kbtn').onclick=openP;
+</script>
+</body>
+</html>
